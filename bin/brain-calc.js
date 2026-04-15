@@ -1,41 +1,49 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
+import readlineSync from 'readline-sync'
 
-console.log('Welcome to the Brain Games!');
-const name = readlineSync.question('May I have your name? ');
-console.log(`Hello, ${name}!`);
+console.log('Welcome to the Brain Games!')
+const name = readlineSync.question('May I have your name? ')
+console.log(`Hello, ${name}!`)
 
-console.log('What is the result of the expression?');
+console.log('What is the result of the expression?')
 
-const getRandomNumber = () => Math.floor(Math.random() * 20);
+const roundsCount = 3
+const operations = ['+', '-', '*']
 
-const getRandomOperator = () => {
-  const operators = ['+', '-', '*'];
-  return operators[Math.floor(Math.random() * operators.length)];
-};
+const getRandomNumber = () => Math.floor(Math.random() * 100)
+const getRandomOperation = () => operations[Math.floor(Math.random() * operations.length)]
 
-const calculate = (a, b, operator) => {
-  if (operator === '+') return a + b;
-  if (operator === '-') return a - b;
-  if (operator === '*') return a * b;
-};
+const calculate = (a, b, op) => {
+  switch (op) {
+    case '+':
+      return a + b
+    case '-':
+      return a - b
+    case '*':
+      return a * b
+    default:
+      throw new Error(`Unknown operation: ${op}`)
+  }
+}
 
-for (let i = 0; i < 3; i++) {
-  const num1 = getRandomNumber();
-  const num2 = getRandomNumber();
-  const operator = getRandomOperator();
+for (let i = 0; i < roundsCount; i += 1) {
+  const num1 = getRandomNumber()
+  const num2 = getRandomNumber()
+  const operator = getRandomOperation()
 
-  console.log(`Question: ${num1} ${operator} ${num2}`);
+  const correctAnswer = calculate(num1, num2, operator)
 
-  const answer = readlineSync.question('Your answer: ');
-  const correctAnswer = String(calculate(num1, num2, operator));
+  console.log(`Question: ${num1} ${operator} ${num2}`)
+  const userAnswer = readlineSync.question('Your answer: ')
 
-  if (answer !== correctAnswer) {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-    console.log(`Let's try again, ${name}!`);
-    process.exit(1);
+  if (Number(userAnswer) !== correctAnswer) {
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+    console.log(`Let's try again, ${name}!`)
+    process.exit(1)
   }
 
-  console.log('Correct!');
+  console.log('Correct!')
 }
+
+console.log(`Congratulations, ${name}!`)
