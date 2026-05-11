@@ -1,14 +1,14 @@
 {
-  "name": "@hexlet/code",
+  "name": "drift",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/lvvvvv777/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/lvvvvv777/frontend-project-44/actions)",
-  "homepage": "https://github.com/lvvvvv777/frontend-project-44#readme",
+  "description": "[![Actions Status](https://github.com/Shelovek1/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Shelovek1/frontend-project-44/actions)",
+  "homepage": "https://github.com/Shelovek1/frontend-project-44#readme",
   "bugs": {
-    "url": "https://github.com/lvvvvv777/frontend-project-44/issues"
+    "url": "https://github.com/Shelovek1/frontend-project-44/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lvvvvv777/frontend-project-44.git"
+    "url": "git+https://github.com/Shelovek1/frontend-project-44.git"
   },
   "license": "ISC",
   "author": "",
